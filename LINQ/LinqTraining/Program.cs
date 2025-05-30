@@ -117,24 +117,112 @@ public class LinqExerciseData
         Console.WriteLine("\nUkol 3: Seskupovani");
         var productsGroup = products.GroupBy(
                                     p => p.Category,
-                                    (key, pr)=> new
+                                    (key, pr) => new
                                     {
                                         Category = key,
                                         Count = pr.Count(),
-                                        AveragePrice = pr.Average(p=>p.Price)
+                                        AveragePrice = pr.Average(p => p.Price)
                                     }
                                     );
-    
+
         foreach (var p in productsGroup)
         {
             Console.WriteLine($"{p.Category,-20}: {p.Count}, Av.Price: {p.AveragePrice,15:C}");
         }
         // Ukol 4: Agregace
-        
+        Console.WriteLine("\n4: Agregace");
+        var productsCout = products.Count;
+        Console.WriteLine($"Celkový počet produktů: {productsCout}");
+        var productWithMaxPrice = products.Select(p => new { p.Name, p.Price })
+                                            .MaxBy(m => m.Price);
+        Console.WriteLine($"Nejdražší produkt: {productWithMaxPrice.Name}: {productWithMaxPrice.Price:C}");
+
+        var TotalOrdersPrice = (from order in orders
+                                join product in products on order.ProductId equals product.Id
+                                select order.Quantity * product.Price)
+                                .Sum();
+        Console.WriteLine($"Celková hodnota objednávek: {TotalOrdersPrice:C}");
+
+
         // Ukol 5: Mnozinove operace
+        Console.WriteLine("\n5: Mnozinove operace");
+        Console.WriteLine("Kategorie:");
+        var categories = products.DistinctBy(p => p.Category)
+                        .Select(c => new { c.Category })
+                        .OrderBy(c => c.Category);
+        foreach (var c in categories)
+        {
+            Console.WriteLine($"\t{c.Category}");
+        }
         // Ukol 6: Prace s textem a cisly
+        Console.WriteLine("\nUkol 6: Prace s textem a cisly");
+        var customers_AinName_cityEndsWithE = customers
+                                .Where(c => c.Name.Contains('A') &&
+                                c.City.EndsWith('e'))
+                                .Select(c => new { c.Id, c.Name });
+        if (customers_AinName_cityEndsWithE.Count() > 0)
+        {
+            foreach (var c in customers_AinName_cityEndsWithE)
+            {
+                Console.WriteLine($"ID: {c.Id,-5}, Name: {c.Name,20}");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Nebyl nalezen žádný výsledek");
+        }
+
         // Ukol 7: Spojovani
+        Console.WriteLine("\nUkol 7: Spojovani");
+
+        var ordersWithCustomer = from order in orders
+                                  join customer in customers
+                                  on order.CustomerId equals customer.Id
+                                  select new { order.OrderId, customer.Name, order.OrderDate };
+
+        Console.WriteLine($"{"Id objednávky ",-20}{"Zákazník",-20}{"Datum objednávky",20}");
+        foreach (var oc in ordersWithCustomer)
+        {
+            Console.WriteLine($"{oc.OrderId,-20}{oc.Name,-20}{oc.OrderDate.ToString("dd.MM.yyyy"),20}");
+        }
+
+        var ordersProductsCustomers = from order in orders
+                                      join product in products on order.ProductId
+                                         equals product.Id
+                                      join customer in customers on order.CustomerId
+                                         equals customer.Id
+                                      select new
+                                      {
+                                          OrderId = order.OrderId,
+                                          CustomerName = customer.Name,
+                                          ProductName = product.Name,
+                                          TotalPrice = order.Quantity * product.Price
+                                      };
+        Console.WriteLine($"{"Id obj.",-7} {"Zákazník",-20}{"Produkt",-20}{"Total",20}");
+        foreach (var opc in ordersProductsCustomers)
+        {
+            Console.WriteLine($"{opc.OrderId,-8}{opc.CustomerName,-20}{opc.ProductName,-20}{opc.TotalPrice,20:C}");
+        }
         // Ukol 8: Odlozene provedeni
+      Console.WriteLine("\nUkol 8: Odlozene provedeni");
+
+        var productOver200 = products.Where(p => p.Price > 200);
+
+        products.Add(new Product { Id = 11, Name = "Tablet", Category = "Electronics", Price = 300.00m, Manufacturer = "Lenovo", IsAvailable = true });
+        foreach (var p in productOver200)
+        {
+            Console.WriteLine($"{p.Name,-20} {p.Price,20:C}");
+        }
+
+        products.RemoveAt(products.Count-1);
+        Console.WriteLine("\nToList() ihned:");
+        productOver200 = products.Where(p => p.Price > 200).ToList();
+
+        products.Add(new Product { Id = 11, Name = "Tablet", Category = "Electronics", Price = 300.00m, Manufacturer = "Lenovo", IsAvailable = true });
+        foreach (var p in productOver200)
+        {
+            Console.WriteLine($"{p.Name,-20} {p.Price,20:C}");
+        }
 
         Console.WriteLine("\n--- Konec ukolu ---");
     }
