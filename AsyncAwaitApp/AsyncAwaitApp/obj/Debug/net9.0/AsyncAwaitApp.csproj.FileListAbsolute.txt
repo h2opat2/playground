@@ -1,0 +1,15 @@
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\bin\Debug\net9.0\AsyncAwaitApp.exe
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\bin\Debug\net9.0\AsyncAwaitApp.deps.json
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\bin\Debug\net9.0\AsyncAwaitApp.runtimeconfig.json
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\bin\Debug\net9.0\AsyncAwaitApp.dll
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\bin\Debug\net9.0\AsyncAwaitApp.pdb
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.AssemblyInfoInputs.cache
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.AssemblyInfo.cs
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.csproj.CoreCompileInputs.cache
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.sourcelink.json
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.dll
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\refint\AsyncAwaitApp.dll
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.pdb
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\AsyncAwaitApp.genruntimeconfig.cache
+C:\Users\Honza\Soukromé\3D Dev\Gemini_mentoring\AsyncAwaitApp\AsyncAwaitApp\obj\Debug\net9.0\ref\AsyncAwaitApp.dll
