@@ -176,9 +176,9 @@ public class LinqExerciseData
         Console.WriteLine("\nUkol 7: Spojovani");
 
         var ordersWithCustomer = from order in orders
-                                  join customer in customers
-                                  on order.CustomerId equals customer.Id
-                                  select new { order.OrderId, customer.Name, order.OrderDate };
+                                 join customer in customers
+                                 on order.CustomerId equals customer.Id
+                                 select new { order.OrderId, customer.Name, order.OrderDate };
 
         Console.WriteLine($"{"Id objednávky ",-20}{"Zákazník",-20}{"Datum objednávky",20}");
         foreach (var oc in ordersWithCustomer)
@@ -204,7 +204,7 @@ public class LinqExerciseData
             Console.WriteLine($"{opc.OrderId,-8}{opc.CustomerName,-20}{opc.ProductName,-20}{opc.TotalPrice,20:C}");
         }
         // Ukol 8: Odlozene provedeni
-      Console.WriteLine("\nUkol 8: Odlozene provedeni");
+        Console.WriteLine("\nUkol 8: Odlozene provedeni");
 
         var productOver200 = products.Where(p => p.Price > 200);
 
@@ -214,7 +214,7 @@ public class LinqExerciseData
             Console.WriteLine($"{p.Name,-20} {p.Price,20:C}");
         }
 
-        products.RemoveAt(products.Count-1);
+        products.RemoveAt(products.Count - 1);
         Console.WriteLine("\nToList() ihned:");
         productOver200 = products.Where(p => p.Price > 200).ToList();
 
@@ -225,5 +225,6 @@ public class LinqExerciseData
         }
 
         Console.WriteLine("\n--- Konec ukolu ---");
+
     }
 }
